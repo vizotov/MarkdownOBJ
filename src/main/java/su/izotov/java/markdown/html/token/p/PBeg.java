@@ -2,8 +2,8 @@ package su.izotov.java.markdown.html.token.p;
 
 import su.izotov.java.markdown.html.token.HtmlText;
 import su.izotov.java.markdown.html.token.HtmlToken;
-import su.izotov.java.markdown.html.token.PreBeg;
-import su.izotov.java.markdown.html.token.Re;
+import su.izotov.java.markdown.html.token.p.re.PreBeg;
+import su.izotov.java.markdown.html.token.p.re.Re;
 import su.izotov.java.objectlr.tokens.Tokens;
 
 /**

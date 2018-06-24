@@ -1,6 +1,6 @@
 package su.izotov.java.markdown.html.token.h2;
 
-import su.izotov.java.markdown.html.token.HtmlEndTag;
+import su.izotov.java.markdown.html.token.HtmlToken;
 
 /**
  * Created with IntelliJ IDEA.
@@ -9,7 +9,7 @@ import su.izotov.java.markdown.html.token.HtmlEndTag;
  * @since 1.0
  */
 public class H2End
-    implements HtmlEndTag {
+    implements HtmlToken {
   @Override public String toSource() {
     return "</h2>";
   }
