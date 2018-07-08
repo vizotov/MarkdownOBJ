@@ -1,2 +1,3 @@
 rootProject.name = 'MarkdownOBJ'
-
+include ':ObjectLR'
+project(':ObjectLR').projectDir = new File(settingsDir, '../ObjectLR')

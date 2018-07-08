@@ -2,7 +2,6 @@ package su.izotov.java.markdown.html.token.comment;
 
 import su.izotov.java.markdown.html.token.HtmlText;
 import su.izotov.java.markdown.html.token.HtmlToken;
-import su.izotov.java.objectlr.tokens.Tokens;
 
 /**
  * Created with IntelliJ IDEA.
@@ -22,10 +21,5 @@ public class CommentBeg
 
   public HtmlText concat(CommentEnd commentEnd) {
     return new HtmlText(this.toSource() + commentEnd.toSource());
-  }
-
-  @Override public Tokens tokens() {
-    // TODO must be only HtmlText and CommentEnd
-    throw new UnsupportedOperationException("#tokens()");
   }
 }

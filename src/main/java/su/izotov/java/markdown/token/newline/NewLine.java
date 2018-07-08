@@ -1,12 +1,12 @@
 package su.izotov.java.markdown.token.newline;
 
 import su.izotov.java.markdown.html.HtmlLang;
+import su.izotov.java.markdown.link.definition.offset.Offset1;
 import su.izotov.java.markdown.token.MarkdownToken;
-import su.izotov.java.markdown.token.newline.offset.NLOffset1;
-import su.izotov.java.markdown.token.newline.offset.Offset1;
+import su.izotov.java.markdown.token.gap.Space;
 import su.izotov.java.objectlr.Sense;
 import su.izotov.java.objectlr.tokens.Tokens;
-import su.izotov.java.objectlr.tokens.TokensSet;
+import su.izotov.java.objectlr.tokens.TokensOf;
 
 /**
  * new line token.
@@ -16,11 +16,11 @@ import su.izotov.java.objectlr.tokens.TokensSet;
  * @since 1.0
  */
 public interface NewLine
-    extends MarkdownToken, HtmlLang, NLToken {
+    extends MarkdownToken, HtmlLang {
   @Override default Tokens tokens() {
-    return new TokensSet(
+    return new TokensOf(
         MarkdownToken.super.tokens(), // obviously markdown tokens
-        NLToken.super.tokens() // after new line tokens
+        HtmlLang.super.tokens() // html tokens
     );
   }
 
@@ -28,7 +28,10 @@ public interface NewLine
     return MarkdownToken.super.textToken(text);
   }
 
-  default NLOffset1 concat(Offset1 offset1) {
-    return new NLOffset1();
+  /**
+   * try to recognize new line offset related constructions
+   */
+  default Sense concat(Space space) {
+    return this.concatDD(new Offset1());
   }
 }

@@ -51,7 +51,7 @@ import su.izotov.java.markdown.html.token.ul.UlBeg;
 import su.izotov.java.markdown.html.token.ul.UlEnd;
 import su.izotov.java.objectlr.Sense;
 import su.izotov.java.objectlr.tokens.Tokens;
-import su.izotov.java.objectlr.tokens.TokensSet;
+import su.izotov.java.objectlr.tokens.TokensOf;
 
 /**
  * Created with IntelliJ IDEA.
@@ -62,7 +62,7 @@ import su.izotov.java.objectlr.tokens.TokensSet;
 public interface HtmlLang
     extends Sense {
   default Tokens tokens() {
-    return new TokensSet(new BlockQuoteBeg(),
+    return new TokensOf(new BlockQuoteBeg(),
                          new BlockQuoteEnd(),
                          new CommentBeg(),
                          new CommentEnd(),
