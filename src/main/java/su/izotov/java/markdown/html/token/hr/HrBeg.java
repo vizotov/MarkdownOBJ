@@ -16,15 +16,11 @@ public class HrBeg
     return "<hr";
   }
 
-  public HrBegText concat(HtmlText htmlText) {
-    return new HrBegText(htmlText.toSource());
-  }
-
-  public HtmlText concat(HrEnd hrEnd) {
-    return new HtmlText(this.toSource() + hrEnd.toSource());
+  public HtmlText concat(HrText hrText) {
+    return new HtmlText(this.toSource() + hrText.toSource());
   }
 
   @Override public Tokens tokens() {
-    throw new UnsupportedOperationException("#tokens()"); // TODO add token HrEnd to tokenset
+    return new HrEnd();
   }
 }

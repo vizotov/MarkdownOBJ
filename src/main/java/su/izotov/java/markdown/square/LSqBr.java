@@ -1,10 +1,8 @@
 package su.izotov.java.markdown.square;
 
-import su.izotov.java.markdown.Title;
 import su.izotov.java.objectlr.token.Failed;
 import su.izotov.java.objectlr.token.Token;
 import su.izotov.java.objectlr.tokens.Tokens;
-import su.izotov.java.objectlr.tokens.TokensOf;
 
 /**
  * Created with IntelliJ IDEA.
@@ -19,7 +17,7 @@ public class LSqBr
   }
 
   @Override public Tokens tokens() {
-    return new TokensOf(new RSqBr());
+    return new RSqBr();
   }
 
   @Override public SquareText textToken(final String text) {
@@ -32,7 +30,7 @@ public class LSqBr
    * @return title
    */
   public Title concat(TextRSqBr textRSqBr) {
-    return new Title(textRSqBr.text());
+    return new Title(this, textRSqBr);
   }
 
   /**

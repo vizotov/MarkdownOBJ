@@ -2,6 +2,7 @@ package su.izotov.java.markdown.html.token.del;
 
 import su.izotov.java.markdown.html.token.HtmlText;
 import su.izotov.java.markdown.html.token.HtmlToken;
+import su.izotov.java.objectlr.tokens.Tokens;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,11 +16,11 @@ public class DelBeg
     return "<del";
   }
 
-  public DelBegText concat(HtmlText htmlText) {
-    return new DelBegText(htmlText.toSource());
+  public HtmlText concat(DelText delText) {
+    return new HtmlText(this.toSource() + delText.toSource());
   }
 
-  public HtmlText concat(DelEnd delEnd) {
-    return new HtmlText(this.toSource() + delEnd.toSource());
+  @Override public Tokens tokens() {
+    return new DelEnd();
   }
 }

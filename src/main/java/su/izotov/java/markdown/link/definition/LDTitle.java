@@ -1,9 +1,8 @@
 package su.izotov.java.markdown.link.definition;
 
-import su.izotov.java.markdown.Title;
+import su.izotov.java.markdown.square.Title;
 import su.izotov.java.objectlr.Sense;
 import su.izotov.java.objectlr.tokens.Tokens;
-import su.izotov.java.objectlr.tokens.TokensOf;
 
 /**
  * Created with IntelliJ IDEA.
@@ -20,7 +19,7 @@ public class LDTitle
   }
 
   @Override public Tokens tokens() {
-    return new TokensOf(new Colon());
+    return new Colon();
   }
 
   @Override public Sense textToken(final String text) {

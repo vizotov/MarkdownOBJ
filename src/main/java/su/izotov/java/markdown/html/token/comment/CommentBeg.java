@@ -2,6 +2,7 @@ package su.izotov.java.markdown.html.token.comment;
 
 import su.izotov.java.markdown.html.token.HtmlText;
 import su.izotov.java.markdown.html.token.HtmlToken;
+import su.izotov.java.objectlr.tokens.Tokens;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,11 +16,11 @@ public class CommentBeg
     return "<!--";
   }
 
-  public CommentBegText concat(HtmlText htmlText) {
-    return new CommentBegText(htmlText.toSource());
+  public HtmlText concat(CommentText commentText) {
+    return new HtmlText(this.toSource() + commentText.toSource());
   }
 
-  public HtmlText concat(CommentEnd commentEnd) {
-    return new HtmlText(this.toSource() + commentEnd.toSource());
+  @Override public Tokens tokens() {
+    return new CommentEnd();
   }
 }

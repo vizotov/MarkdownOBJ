@@ -2,6 +2,7 @@ package su.izotov.java.markdown.html.token.math;
 
 import su.izotov.java.markdown.html.token.HtmlText;
 import su.izotov.java.markdown.html.token.HtmlToken;
+import su.izotov.java.objectlr.tokens.Tokens;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,11 +16,11 @@ public class MathBeg
     return "<math";
   }
 
-  public MathBegText concat(HtmlText htmlText) {
-    return new MathBegText(htmlText.toSource());
+  public HtmlText concat(MathText mathText) {
+    return new HtmlText(this.toSource() + mathText.toSource());
   }
 
-  public HtmlText concat(MathEnd mathEnd) {
-    return new HtmlText(this.toSource() + mathEnd.toSource());
+  @Override public Tokens tokens() {
+    return new MathEnd();
   }
 }

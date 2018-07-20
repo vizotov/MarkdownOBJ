@@ -2,6 +2,7 @@ package su.izotov.java.markdown.html.token.script;
 
 import su.izotov.java.markdown.html.token.HtmlText;
 import su.izotov.java.markdown.html.token.HtmlToken;
+import su.izotov.java.objectlr.tokens.Tokens;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,11 +16,11 @@ public class ScriptBeg
     return "<script";
   }
 
-  public ScriptBegText concat(HtmlText htmlText) {
-    return new ScriptBegText(htmlText.toSource());
+  public HtmlText concat(ScriptText scriptText) {
+    return new HtmlText(this.toSource() + scriptText.toSource());
   }
 
-  public HtmlText concat(ScriptEnd scriptEnd) {
-    return new HtmlText(this.toSource() + scriptEnd.toSource());
+  @Override public Tokens tokens() {
+    return new ScriptEnd();
   }
 }

@@ -2,6 +2,7 @@ package su.izotov.java.markdown.html.token.ins;
 
 import su.izotov.java.markdown.html.token.HtmlText;
 import su.izotov.java.markdown.html.token.HtmlToken;
+import su.izotov.java.objectlr.tokens.Tokens;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,11 +16,11 @@ public class InsBeg
     return "<ins";
   }
 
-  public InsBegText concat(HtmlText htmlText) {
-    return new InsBegText(htmlText.toSource());
+  public HtmlText concat(InsText insText) {
+    return new HtmlText(this.toSource() + insText.toSource());
   }
 
-  public HtmlText concat(InsEnd insEnd) {
-    return new HtmlText(this.toSource() + insEnd.toSource());
+  @Override public Tokens tokens() {
+    return new InsEnd();
   }
 }

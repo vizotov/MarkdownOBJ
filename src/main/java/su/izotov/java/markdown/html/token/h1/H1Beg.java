@@ -2,6 +2,7 @@ package su.izotov.java.markdown.html.token.h1;
 
 import su.izotov.java.markdown.html.token.HtmlText;
 import su.izotov.java.markdown.html.token.HtmlToken;
+import su.izotov.java.objectlr.tokens.Tokens;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,11 +16,11 @@ public class H1Beg
     return "<h1";
   }
 
-  public H1BegText concat(HtmlText htmlText) {
-    return new H1BegText(htmlText.toSource());
+  public HtmlText concat(H1Text h1Text) {
+    return new HtmlText(this.toSource() + h1Text.toSource());
   }
 
-  public HtmlText concat(H1End h1End) {
-    return new HtmlText(this.toSource() + h1End.toSource());
+  @Override public Tokens tokens() {
+    return new H1End();
   }
 }

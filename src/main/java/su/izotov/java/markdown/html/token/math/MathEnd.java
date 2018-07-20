@@ -1,6 +1,7 @@
 package su.izotov.java.markdown.html.token.math;
 
-import su.izotov.java.markdown.html.token.HtmlToken;
+import su.izotov.java.markdown.html.token.HtmlMarker;
+import su.izotov.java.markdown.html.token.HtmlText;
 
 /**
  * Created with IntelliJ IDEA.
@@ -9,8 +10,12 @@ import su.izotov.java.markdown.html.token.HtmlToken;
  * @since 1.0
  */
 public class MathEnd
-    implements HtmlToken {
+    implements HtmlMarker {
   @Override public String toSource() {
     return "</math>";
+  }
+
+  @Override public MathText concatTo(final HtmlText htmlText) {
+    return new MathText(htmlText.toSource());
   }
 }

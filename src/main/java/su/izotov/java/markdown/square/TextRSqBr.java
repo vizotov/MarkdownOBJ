@@ -9,7 +9,7 @@ import su.izotov.java.objectlr.token.Marker;
  * @version $Id$
  * @since 1.0
  */
-class TextRSqBr
+public class TextRSqBr
     implements Marker {
   private final String text;
 
@@ -23,5 +23,9 @@ class TextRSqBr
 
   public String text() {
     return text;
+  }
+
+  public TextRSqBr concatTo(final String text) {
+    return new TextRSqBr(text + this.text);
   }
 }

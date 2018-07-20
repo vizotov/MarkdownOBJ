@@ -17,4 +17,12 @@ public class HtmlText
   @Override public String toSource() {
     return text;
   }
+
+  public HtmlText concat(HtmlText htmlText) {
+    return new HtmlText(text + htmlText.toSource());
+  }
+
+  public HtmlToken concat(HtmlMarker htmlMarker) {
+    return htmlMarker.concatTo(this);
+  }
 }

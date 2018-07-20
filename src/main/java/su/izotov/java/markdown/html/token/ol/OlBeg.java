@@ -2,6 +2,7 @@ package su.izotov.java.markdown.html.token.ol;
 
 import su.izotov.java.markdown.html.token.HtmlText;
 import su.izotov.java.markdown.html.token.HtmlToken;
+import su.izotov.java.objectlr.tokens.Tokens;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,11 +16,11 @@ public class OlBeg
     return "<ol";
   }
 
-  public OlBegText concat(HtmlText htmlText) {
-    return new OlBegText(htmlText.toSource());
+  public HtmlText concat(OlText olText) {
+    return new HtmlText(this.toSource() + olText.toSource());
   }
 
-  public HtmlText concat(OlEnd olEnd) {
-    return new HtmlText(this.toSource() + olEnd.toSource());
+  @Override public Tokens tokens() {
+    return new OlEnd();
   }
 }

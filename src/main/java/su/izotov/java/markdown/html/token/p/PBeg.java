@@ -5,6 +5,7 @@ import su.izotov.java.markdown.html.token.HtmlToken;
 import su.izotov.java.markdown.html.token.p.re.PreBeg;
 import su.izotov.java.markdown.html.token.p.re.Re;
 import su.izotov.java.objectlr.tokens.Tokens;
+import su.izotov.java.objectlr.tokens.TokensOf;
 
 /**
  * Created with IntelliJ IDEA.
@@ -18,12 +19,8 @@ public class PBeg
     return "<p";
   }
 
-  public PBegText concat(HtmlText htmlText) {
-    return new PBegText(htmlText.toSource());
-  }
-
-  public HtmlText concat(PEnd pEnd) {
-    return new HtmlText(this.toSource() + pEnd.toSource());
+  public HtmlText concat(PText pText) {
+    return new HtmlText(this.toSource() + pText.toSource());
   }
 
   public PreBeg concat(Re re) {
@@ -31,6 +28,6 @@ public class PBeg
   }
 
   @Override public Tokens tokens() {
-    throw new UnsupportedOperationException("#tokens()"); // TODO add token Re to tokenset
+    return new TokensOf(new Re(), new PEnd());
   }
 }

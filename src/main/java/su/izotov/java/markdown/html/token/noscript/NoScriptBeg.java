@@ -2,6 +2,7 @@ package su.izotov.java.markdown.html.token.noscript;
 
 import su.izotov.java.markdown.html.token.HtmlText;
 import su.izotov.java.markdown.html.token.HtmlToken;
+import su.izotov.java.objectlr.tokens.Tokens;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,11 +16,11 @@ public class NoScriptBeg
     return "<noscript";
   }
 
-  public NoScriptBegText concat(HtmlText htmlText) {
-    return new NoScriptBegText(htmlText.toSource());
+  public HtmlText concat(NoScriptText noScriptText) {
+    return new HtmlText(this.toSource() + noScriptText.toSource());
   }
 
-  public HtmlText concat(NoScriptEnd noScriptEnd) {
-    return new HtmlText(this.toSource() + noScriptEnd.toSource());
+  @Override public Tokens tokens() {
+    return new NoScriptEnd();
   }
 }

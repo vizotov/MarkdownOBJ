@@ -2,6 +2,7 @@ package su.izotov.java.markdown.html.token.dl;
 
 import su.izotov.java.markdown.html.token.HtmlText;
 import su.izotov.java.markdown.html.token.HtmlToken;
+import su.izotov.java.objectlr.tokens.Tokens;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,11 +16,11 @@ public class DlBeg
     return "<dl";
   }
 
-  public DlBegText concat(HtmlText htmlText) {
-    return new DlBegText(htmlText.toSource());
+  public HtmlText concat(DlText dlText) {
+    return new HtmlText(this.toSource() + dlText.toSource());
   }
 
-  public HtmlText concat(DlEnd dlEnd) {
-    return new HtmlText(this.toSource() + dlEnd.toSource());
+  @Override public Tokens tokens() {
+    return new DlEnd();
   }
 }

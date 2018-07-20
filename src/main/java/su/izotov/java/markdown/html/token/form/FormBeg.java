@@ -2,6 +2,7 @@ package su.izotov.java.markdown.html.token.form;
 
 import su.izotov.java.markdown.html.token.HtmlText;
 import su.izotov.java.markdown.html.token.HtmlToken;
+import su.izotov.java.objectlr.tokens.Tokens;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,11 +16,11 @@ public class FormBeg
     return "<form";
   }
 
-  public FormBegText concat(HtmlText htmlText) {
-    return new FormBegText(htmlText.toSource());
+  public HtmlText concat(FormText formText) {
+    return new HtmlText(this.toSource() + formText.toSource());
   }
 
-  public HtmlText concat(FormEnd formEnd) {
-    return new HtmlText(this.toSource() + formEnd.toSource());
+  @Override public Tokens tokens() {
+    return new FormEnd();
   }
 }

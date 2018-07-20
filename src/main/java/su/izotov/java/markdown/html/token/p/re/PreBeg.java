@@ -2,6 +2,7 @@ package su.izotov.java.markdown.html.token.p.re;
 
 import su.izotov.java.markdown.html.token.HtmlText;
 import su.izotov.java.markdown.html.token.HtmlToken;
+import su.izotov.java.objectlr.tokens.Tokens;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,11 +16,11 @@ public class PreBeg
     return "<pre";
   }
 
-  public PreBegText concat(HtmlText htmlText) {
-    return new PreBegText(htmlText.toSource());
+  public HtmlText concat(PreText preText) {
+    return new HtmlText(this.toSource() + preText.toSource());
   }
 
-  public HtmlText concat(PreEnd preEnd) {
-    return new HtmlText(this.toSource() + preEnd.toSource());
+  @Override public Tokens tokens() {
+    return new PreEnd();
   }
 }

@@ -3,7 +3,6 @@ package su.izotov.java.markdown.square;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
-import su.izotov.java.markdown.Title;
 import su.izotov.java.objectlr.Sense;
 import su.izotov.java.objectlr.token.Failed;
 import su.izotov.java.objectlr.token.Unrecognized;

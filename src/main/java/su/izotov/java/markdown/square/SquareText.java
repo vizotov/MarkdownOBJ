@@ -2,7 +2,6 @@ package su.izotov.java.markdown.square;
 
 import su.izotov.java.objectlr.token.Token;
 import su.izotov.java.objectlr.tokens.Tokens;
-import su.izotov.java.objectlr.tokens.TokensOf;
 
 /**
  * the text between square brackets
@@ -24,7 +23,7 @@ public class SquareText
   }
 
   @Override public Tokens tokens() {
-    return new TokensOf(new RSqBr());
+    return new RSqBr();
   }
 
   @Override public SquareText textToken(final String text) {
@@ -36,7 +35,7 @@ public class SquareText
   }
 
   public TextRSqBr concat(final TextRSqBr textRSqBr) {
-    return new TextRSqBr(text + textRSqBr.toSource());
+    return textRSqBr.concatTo(text);
   }
 
   public SquareText concat(final SquareText squareText) {

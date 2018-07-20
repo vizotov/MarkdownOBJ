@@ -2,6 +2,7 @@ package su.izotov.java.markdown.html.token.ul;
 
 import su.izotov.java.markdown.html.token.HtmlText;
 import su.izotov.java.markdown.html.token.HtmlToken;
+import su.izotov.java.objectlr.tokens.Tokens;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,11 +16,11 @@ public class UlBeg
     return "<ul";
   }
 
-  public UlBegText concat(HtmlText htmlText) {
-    return new UlBegText(htmlText.toSource());
+  public HtmlText concat(UlText ulText) {
+    return new HtmlText(this.toSource() + ulText.toSource());
   }
 
-  public HtmlText concat(UlEnd ulEnd) {
-    return new HtmlText(this.toSource() + ulEnd.toSource());
+  @Override public Tokens tokens() {
+    return new UlEnd();
   }
 }

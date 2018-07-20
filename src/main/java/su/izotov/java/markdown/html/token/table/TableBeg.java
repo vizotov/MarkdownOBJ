@@ -2,6 +2,7 @@ package su.izotov.java.markdown.html.token.table;
 
 import su.izotov.java.markdown.html.token.HtmlText;
 import su.izotov.java.markdown.html.token.HtmlToken;
+import su.izotov.java.objectlr.tokens.Tokens;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,11 +16,11 @@ public class TableBeg
     return "<table";
   }
 
-  public TableBegText concat(HtmlText htmlText) {
-    return new TableBegText(htmlText.toSource());
+  public HtmlText concat(TableText tableText) {
+    return new HtmlText(this.toSource() + tableText.toSource());
   }
 
-  public HtmlText concat(TableEnd tableEnd) {
-    return new HtmlText(this.toSource() + tableEnd.toSource());
+  @Override public Tokens tokens() {
+    return new TableEnd();
   }
 }

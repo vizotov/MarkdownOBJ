@@ -2,6 +2,7 @@ package su.izotov.java.markdown.html.token.div;
 
 import su.izotov.java.markdown.html.token.HtmlText;
 import su.izotov.java.markdown.html.token.HtmlToken;
+import su.izotov.java.objectlr.tokens.Tokens;
 
 /**
  * Created with IntelliJ IDEA.
@@ -15,11 +16,11 @@ public class DivBeg
     return "<div";
   }
 
-  public DivBegText concat(HtmlText htmlText) {
-    return new DivBegText(htmlText.toSource());
+  public HtmlText concat(DivText divText) {
+    return new HtmlText(this.toSource() + divText.toSource());
   }
 
-  public HtmlText concat(DivEnd divEnd) {
-    return new HtmlText(this.toSource() + divEnd.toSource());
+  @Override public Tokens tokens() {
+    return new DivEnd();
   }
 }

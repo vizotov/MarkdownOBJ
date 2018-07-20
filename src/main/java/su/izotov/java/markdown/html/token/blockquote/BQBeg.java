@@ -2,6 +2,7 @@ package su.izotov.java.markdown.html.token.blockquote;
 
 import su.izotov.java.markdown.html.token.HtmlText;
 import su.izotov.java.markdown.html.token.HtmlToken;
+import su.izotov.java.objectlr.tokens.Tokens;
 
 /**
  * Created with IntelliJ IDEA.
@@ -9,17 +10,17 @@ import su.izotov.java.markdown.html.token.HtmlToken;
  * @version $Id$
  * @since 1.0
  */
-public class BlockQuoteBeg
+public class BQBeg
     implements HtmlToken {
   @Override public String toSource() {
     return "<blockquote";
   }
 
-  public BlockQuoteText concat(HtmlText htmlText) {
-    return new BlockQuoteText(htmlText.toSource());
+  public HtmlText concat(BQText bqText) {
+    return new HtmlText(this.toSource() + bqText.toSource());
   }
 
-  public HtmlText concat(BlockQuoteEnd blockQuoteEnd) {
-    return new HtmlText(this.toSource() + blockQuoteEnd.toSource());
+  @Override public Tokens tokens() {
+    return new BQEnd();
   }
 }
